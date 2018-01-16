@@ -7,9 +7,9 @@ Every item has a due date and time.
 
 ### Listing Items
 To print raw JSON data of todo items:
-'''todo-cli list'''
+```todo-cli list```
 or 
-'''todo-cli l'''
+```todo-cli l```
 
 For a better printint style use:
 '''todo-cli listpretty'''
