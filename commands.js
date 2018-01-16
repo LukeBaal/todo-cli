@@ -123,15 +123,19 @@ program
 
 //List command
 program
-  .command('list <m>')
+  .command('list')
   .alias('l')
   .description('List all items')
   .action(m => {
-    if (m == 'p'){
-      listItemsPretty();
-    }else{
-      listItems().then(items => console.info(items));
-    }
+    listItems().then(items => console.info(items));
   });
 
+//Pretty List command
+program
+.command('listpretty')
+.alias('lp')
+.description('List all items')
+.action(m => {
+    listItemsPretty();
+});
 program.parse(process.argv);
