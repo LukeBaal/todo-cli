@@ -5,6 +5,15 @@ A Simple todo list CLI tool using commander, inquirer, and mongodb.
 
 Every item has a due date and time. 
 
+## Install
+Assuming NodeJS/npm and MongoDB are installed, after cloning the repo, cd into the directory and run:
+
+```npm install```
+
+```npm link```
+
+Note: use 'sudo' for ```npm link``` if on Linux.
+
 ### Listing Items
 
 To print raw JSON data of todo items:
