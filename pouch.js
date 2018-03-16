@@ -56,7 +56,8 @@ const listItems = () => {
   return db.find({
     selector: {date: {$gte: null}},
     sort: ['date']
-  }).then(results => results.docs);
+  }).then(results => results.docs)
+  .catch(err => console.log(err));
 }
 
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -89,7 +90,7 @@ const listItemsPretty = () => {
         }
       }
       return allItems;
-    });
+    }).catch(err => console.log(err));
 };
 
 // Restore from todo.js

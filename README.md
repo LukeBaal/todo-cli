@@ -1,4 +1,5 @@
 # todo-cli
+
 Todo List CLI using MongoDB
 
 A Simple todo list CLI tool using commander, inquirer, and mongodb.
@@ -6,6 +7,7 @@ A Simple todo list CLI tool using commander, inquirer, and mongodb.
 Every item has a due date and time. 
 
 ## Install
+
 Assuming NodeJS/npm and MongoDB are installed, after cloning the repo, cd into the directory and run:
 
 ```npm install```
@@ -20,7 +22,7 @@ To print raw JSON data of todo items:
 
 ```todo-cli list```
 
-or 
+or
 
 ```todo-cli l```
 
@@ -80,4 +82,3 @@ or
 ```todo-cli p```
 
 To remove the first most recently due item.
-
