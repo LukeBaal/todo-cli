@@ -80,7 +80,7 @@ const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 //List Items
 const listItemsPretty = () => {
-  Todo.find().sort('date')
+  return Todo.find().sort('date')
     .then(items => {
       let allItems = [];
       for (item of items){
@@ -92,15 +92,16 @@ const listItemsPretty = () => {
             day = 'TODAY';
           }
           if (hour > 12){
-            console.info(`${day}@${hour%12}${item.date.toUTCString().slice(-10,-7)} PM: ${item.name}`);            
+            allItems.push(`${day}@${hour%12}${item.date.toUTCString().slice(-10,-7)} PM: ${item.name}`);            
           }else{
-            console.info(`${day}@${item.date.toUTCString().slice(-12,-7)} AM: ${item.name}`);
+            allItems.push(`${day}@${item.date.toUTCString().slice(-12,-7)} AM: ${item.name}`);
           }
         }else if(dateDiff < 21){
-          console.info(`${months[item.date.getMonth()]} ${item.date.getDate()}: ${item.name}`);
+          allItems.push(`${months[item.date.getMonth()]} ${item.date.getDate()}: ${item.name}`);
         }
       }
       db.close();
+      return allItems;
     });
 };
 

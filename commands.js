@@ -9,7 +9,7 @@ const {
   popItem,
   listItems,
   listItemsPretty
-} = require('./index');
+} = require('./pouch');
 
 //Customer Questions
 const questions = [
@@ -67,11 +67,13 @@ program
       const year = new Date();
       if (answers.course !== 'None'){
         addItem({ 
+          _id: new Date().toJSON(),
           date:year.getFullYear() + '-' + answers.date + 'T' + answers.time + ':00.000Z',
           name:answers.course + ' ' + answers.name
         });
       }else{
         addItem({ 
+          _id: new Date().toJSON(),                               
           date:year.getFullYear() + '-' + answers.date + 'T' + answers.time + ':00.000Z',
           name:answers.name
         });
@@ -80,11 +82,11 @@ program
   });
 
 //Find command
-program
-  .command('find <name>')
-  .alias('f')
-  .description('Find an item')
-  .action(name => findItem(name));
+// program
+//   .command('find <name>')
+//   .alias('f')
+//   .description('Find an item')
+//   .action(name => findItem(name));
 
 //Update command
 program
@@ -127,7 +129,11 @@ program
   .alias('l')
   .description('List all items')
   .action(m => {
-    listItems().then(items => console.info(items));
+    listItems()
+      .then(items => {
+        items.forEach(item => console.info(item));
+      })
+      .catch(err => console.log(err));
   });
 
 //Pretty List command
@@ -136,6 +142,10 @@ program
 .alias('lp')
 .description('List all items')
 .action(m => {
-    listItemsPretty();
+    listItemsPretty()
+      .then(items => {
+        items.forEach(item => console.info(item));
+      })
+      .catch(err => console.log(err));
 });
 program.parse(process.argv);
