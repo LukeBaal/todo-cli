@@ -12,7 +12,7 @@ const daysLeft = dueDate => {
   const difference_ms = dueDate - today;
   
   // Convert back to days and return
-  return Math.round(difference_ms/one_day); 
+  return Math.floor(difference_ms/one_day); 
 };
 
 //Add Item
