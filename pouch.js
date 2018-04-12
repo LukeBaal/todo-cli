@@ -8,11 +8,17 @@ const daysLeft = dueDate => {
   const one_day = 1000*60*60*24;
   const today = new Date();
 
+  //Set dueDate and today to noon, to get accurate days left
+  dueDate.setHours(12);
+  dueDate.setMinutes(0);
+  today.setHours(12);
+  today.setMinutes(0);
+  today.setSeconds(0);
+  today.setMilliseconds(0);
   // Calculate the difference in milliseconds
   const difference_ms = dueDate - today;
-  
   // Convert back to days and return
-  return Math.floor(difference_ms/one_day); 
+  return difference_ms/one_day; 
 };
 
 //Add Item
